@@ -52,8 +52,10 @@ function MainButton() {
 
 
         } else if ($inputList[i].type === 'text') {
-                currentAnswerInfo[inputID] = userInput;
-
+            if (!currentAnswerInfo.value){
+                currentAnswerInfo.value = {};
+            }
+            currentAnswerInfo.value[inputID] = userInput
             errorMessage = verifyFunction(userInput);
     
             if(errorMessage != ""){

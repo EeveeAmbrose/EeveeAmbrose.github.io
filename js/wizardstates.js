@@ -182,10 +182,8 @@ const stateUsersLocation = {
 	],
 	onAnswer(answer){
 		if(answer !== 'CANADA'){
-			setAllExcept('gsaCanadaOnly', 0)
-		} else {
-			addCategory('gsaCanadaOnly', .1)
-		}
+			setCategory('gsaCanadaOnly', 0)
+		} 
 		return stateOneTimeContact
 	}
 }

@@ -125,7 +125,7 @@ function terminateQuiz(){
 	const userdataElement = document.createElement('ul');
 	userdataElement.append(...userData.map(o => {
 		const listItem = document.createElement('li');
-		listItem.innerHTML = `${o.form.formName}: ${o.value}`
+		listItem.innerHTML = `${o.form.formName}: ${JSON.stringify(o.value)}`
 		return listItem
 	}))
 	
