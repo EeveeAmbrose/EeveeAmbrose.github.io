@@ -88,13 +88,11 @@ function MainButton() {
             return;
         }
 
-
-
-
         currentFormNumber ++;
-        if(currentFormNumber === forms.length){
-            console.log('Load chair suggestion page');
-            console.log(currentWeights);
+        if(currentFormNumber === forms.length){    
+        console.log(userData)
+        console.log(currentWeights);
+            terminateQuiz()
             return;
         }
         const $wizzHolder = document.querySelector('.wizz-holder');
@@ -118,8 +116,6 @@ function MainButton() {
 
 
     }
-    console.log(userData)
-    console.log(currentWeights);
 };
 
 function SelectUnits(o){

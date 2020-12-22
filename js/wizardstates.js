@@ -462,12 +462,12 @@ const stateBariatricDailyUse = {
 	],
 	onAnswer(answer){
 		if(answer === 'YES'){
-			bariatricCategory.reviveBariatric = 1;
-			bariatricCategory.vanguard = 1;
+			setChair('vanguard' ,1)
+		 	setChair('reviveBariatric' ,1)
 			return
 		}
 		if(answer === 'NO'){
-			bariatricCategory.reviveBariatric = 0;
+			setChair('reviveBariatric' ,0)
 			return
 		}
 	}
@@ -596,13 +596,13 @@ const stateRehabRuleOut = {
 
 
 const forms = [
-	// stateBegin,
+	stateBegin,
 	// stateUsersLocation,
 	// stateOneTimeContact,
 	// stateEmailAdress,
 	// stateUserType,
 
-	stateBariatricRuleOut,
+	// stateBariatricRuleOut,
 	// stateGliderRuleOut,
 	// stateTransportRuleOut,
 	//stateHygeineRuleOut,

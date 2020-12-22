@@ -183,6 +183,14 @@ function clamp(min, max, value){
     return Math.max(Math.min(value, max), min)
 }
 
+
+
+
+//?          console log table parser                     
+
+// i would like to make this but itll take me to long right now
+
+
 // //?                       magic                                      
 
 function transitionEventEndName(){

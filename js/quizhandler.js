@@ -104,3 +104,33 @@ function addChair(chair, value){
 		}
 	}
 }
+
+
+
+
+function terminateQuiz(){
+	const currentWeightsHeader = document.createElement('h3');
+	currentWeightsHeader.innerHTML = 'Chair Weights'
+	// const br = document.createElement('br');
+	const currentWeightsElement = document.createElement('ul');
+	currentWeightsElement.append(...Object.keys(currentWeights).map(chairname => {
+		const listItem = document.createElement('li');
+		listItem.innerHTML = `${chairname}: ${currentWeights[chairname]}`
+		return listItem
+	}))
+
+	const userDataHeader = document.createElement('h3');
+	userDataHeader.innerHTML = 'user data'
+	// const br2 = document.createElement('br');
+	const userdataElement = document.createElement('ul');
+	userdataElement.append(...userData.map(o => {
+		const listItem = document.createElement('li');
+		listItem.innerHTML = `${o.form.formName}: ${o.value}`
+		return listItem
+	}))
+	
+	const div = document.createElement('div');
+	div.append(currentWeightsHeader, currentWeightsElement, userDataHeader, userdataElement)
+	document.body.innerHTML= '';
+	document.body.append(div)
+}
