@@ -1,0 +1,185 @@
+//? ======================================= IMPORTS ==============================================
+
+@import "_globals.scss";
+@import "_ux-ui-elements.scss";
+
+
+//? ======================================= LANDING PAGE HTML ====================================
+
+.icsg-project-capsule {
+
+  .wizz-landing-page {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+
+    header {
+      flex: 0 1 auto;
+      
+      h1 {
+        font-family: "Gotham";
+        text-align: center;
+        width: 35%;
+        font-size: 5em;
+      }
+    
+      .slideshow-wrapper {
+        height: 35vh;
+        background-color: rgb(192, 192, 192);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .stuff-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1 1 auto;
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .wizz-explain{
+          margin-bottom: 75px;
+          width: 85%;
+
+          h2 {
+          margin-bottom: 25px;
+          font-size: 2.5em;
+          margin-bottom: 100px;
+          font-weight: 700;
+          }
+
+        }
+
+        .wizz-starter-container {
+          display: flex;
+          flex-direction: column;
+
+          p {
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            margin-bottom: 100px;
+            font-weight: 700;
+          }
+        } 
+      }
+    }
+  
+    footer {
+      background-color: rgb(18, 40, 75);
+      color: white;
+      height: 150px;
+    }
+  }
+}
+
+
+//? ======================================= WIZARD HTML ====================================
+
+.icsg-project-capsule {
+
+  .wizz-wrap {
+
+    .content {
+      min-height: calc(100vh - 150px - 100px);
+      display: flex;
+      align-items: center;
+  
+      .wizz-viewport{
+        // flex-grow: 1;
+        display: flex;
+        overflow-x: hidden;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        
+        .wizz-holder{
+          // flex-grow: 1;
+          display: flex;
+          justify-content: space-around;
+          min-width: 100vw;
+  
+          .wizzbox {
+            background-color: rgb(255, 250, 232);
+            box-shadow: 4px 4px 10px #dedede;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            min-height: 605px;
+          
+            .wizz-head {
+              display: flex;
+              align-items: center;
+              flex-direction: column;
+              margin-top: 40px;
+              max-width: 90%;
+              text-align: center;
+              margin-bottom: 15px;
+            }
+          
+            .wizz-foot {
+              display: flex;
+              align-items: center;
+              flex-direction: column;
+              width: 100%;
+            }
+          
+            .wizz-foot-bottom {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 25px;
+                margin-bottom: 25px;
+                width: 100%;
+            }
+          
+            .wizz-foot-botleft {
+              margin-left: 35px;
+            }
+          
+            .wizz-foot-botright {
+              margin-right: 35px;
+            }
+          
+            .tooltip {
+              margin-top: 20px;
+              margin-bottom: 20px;
+            }
+          }
+        }
+      }
+    }
+    
+  }
+
+}
+
+
+//? ======================================= CONTENT WIDTH QUIRIES ====================================
+
+.content-width {
+  position: relative;
+  width: 90vw;
+  max-width: 1400px;
+  // margin: 0px auto;
+}
+
+// @media screen and (min-width: 375px) {
+//   .content-width {
+//   }
+// }
+
+// @media screen and (min-width: 768px) {
+//   .content-width {
+//   }
+// }
+
+// @media screen and (min-width: 1440px) {
+//   .content-width {
+//   }
+// }

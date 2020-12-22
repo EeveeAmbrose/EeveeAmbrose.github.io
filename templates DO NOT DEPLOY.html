@@ -1,0 +1,257 @@
+// //?                             template file for original html structures                    
+// DO NOT DEPLOY!!!!!!
+
+
+
+<!-- 
+                 <section id="wizz_b">
+                    <div class="content-width">
+                        <div class="stuff-wrap">
+                            <div class="wizzbox">
+                                <div class="wizz-head">
+                                    <h4>Please enter your full name.</h4>
+                                    <a href="#" class="tooltip">How do we use this information?</a>
+                                </div>
+        
+
+
+
+
+
+
+
+
+
+
+                                <div class="wizz-foot">
+                                    <div class="wizz-foot-top">
+                                        <a href="#" class="main-button" onclick="MainButton()">NEXT</a>
+                                    </div>
+                                    <div class="wizz-foot-bottom">
+                                        <div class="wizz-foot-botleft">
+                                            <a href="#" class="back-button"><svg class="arrow back-arrow">
+                                                    <use xlink:href="#back-bracket">
+                                                </svg>BACK</a>
+                                        </div>
+                                        <div class="wizz-foot-botright">
+                                            <a href="#" class="skip-button">SKIP
+                                                <svg class="arrow forward-arrow">
+                                                    <use xlink:href="#back-bracket"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section> -->
+
+
+
+
+
+// //?                               Measurements input                          
+
+<div class="measurement">
+    <div class="m-top">
+        <div class="text-box">
+            <input type="text" id="NAME OF INPUT" autocomplete="off" required/>
+            <label for="MATCHES ID" class="text-input-animate">
+                <span class="text-label-actual">SEAT TO TOP OF HEAD</span>
+            </label>
+        </div>
+        <div class="units-button-container">
+            <a href="#" class="unit-button">inches</a>
+            <a href="#" class="unit-button button-selected">cm</a>
+        </div>
+    </div>
+    <div class="m-bottom">
+        <svg class="illustration">
+            <use xlink:href="#seat-to-top-head"></use>
+        </svg>
+    </div>
+</div>
+
+
+
+
+
+// //?                     Radio box input                                             
+
+<div class="radio-box">
+    <input type="radio" name="NAME OF FORM" id="NAME OF INPUT" value="MATCHES OPTION TEXT">
+    <label for="MATCHES ID">
+        <span class="radio-label-actual">LABEL NAME</span>
+    </label>
+    <span class="radio-circle"></span>
+</div>
+
+
+
+
+
+
+
+// //?                         Text box input                                   
+
+<div class="text-box">
+    <input type="text" id="NAME OF INPUT" autocomplete="off" required/>
+    <label for="MATCHES ID" class="text-input-animate">
+        <span class="text-label-actual">FIRST NAME</span>
+    </label>
+</div>
+
+
+// //?                         checkbox input                                   
+
+<div class="check-box">
+    <input type="checkbox" formname="chair-options" id="wheels" autocomplete="off"/>
+    <label for="wheels">
+        <span class="checkbox-label-actual">Wheels</span>
+    </label>
+    <span class="check-square"></span>
+</div>
+
+
+
+// //?                     Wizz foot structure                             
+
+<div class="wizz-foot">
+    <div class="wizz-foot-top">
+        <a href="#" class="main-button">NEXT</a>
+    </div>
+    <div class="wizz-foot-bottom">
+        <div class="wizz-foot-botleft">
+            <a href="#" class="back-button"><svg class="arrow back-arrow">
+                    <use xlink:href="#back-bracket">
+                </svg>BACK</a>
+        </div>
+        <div class="wizz-foot-botright">
+            <a href="#" class="skip-button">SKIP
+                <svg class="arrow forward-arrow">
+                    <use xlink:href="#back-bracket"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+// text input
+
+<script>
+    const $Item = document.createElement('div')
+    $Item.setAttribute('class', 'text-box')
+
+    const $Input = document.createElement('input')
+    $Input.setAttribute('type', 'text'),
+    $Input.setAttribute('name', formName);
+    $Input.setAttribute('id', idOfInput);
+    $Input.setAttribute('autocomplete', 'off'); // //! this is only temp until i figure out the auto complete bug.
+    if(required){
+        $Input.required = true;
+    };
+
+    const $Label = document.createElement('label');
+    $Label.setAttribute('for', idOfInput); //This changes but matches ID
+    $Label.setAttribute('class', 'text-input-animate');
+
+    const $ActualLabel = document.createElement('span');
+    $ActualLabel.setAttribute('class', 'text-label-actual');
+    $ActualLabel.innerHTML = labelText; //this changes
+
+    $Item.append($Input);
+    $Item.append($Label);
+    $Label.append($ActualLabel);
+
+    return $Item;
+</script>
+
+
+
+
+
+
+
+// radio input
+
+
+<script>
+    
+    const $Item = document.createElement('div');
+    $Item.setAttribute('class', 'radio-box');
+
+    const $Input = document.createElement('input');
+    $Input.setAttribute('type', 'radio');
+    $Input.setAttribute('name', items.formName);
+    $Input.setAttribute('id', items.id);
+    $Input.setAttribute('value', items.value);
+    
+    const $Label = document.createElement('label');
+    $Label.setAttribute('for', items.id);
+
+    const $ActualLabel = document.createElement('span');
+    $ActualLabel.setAttribute('class', 'radio-label-actual');
+    $ActualLabel.innerHTML = items.labelText;
+    
+    const $RadioCircle = document.createElement('span');
+    $RadioCircle.setAttribute('class', 'radio-circle');
+
+    $Item.append($Input);
+    $Item.append($Label);
+    $Label.append($ActualLabel);
+    $Item.append($RadioCircle);
+
+
+    return $Item;
+</script>
+
+
+
+// measurement
+
+<script>
+    
+    const $Item = document.createElement('div');
+    $Item.setAttribute('class', 'measurement');
+
+    const $mTop = document.createElement('div');
+    $mTop.setAttribute('class', 'm-top');
+
+    const $TextBox = BuildTextInput(items);
+
+    const $UnitsButtonContainer = document.createElement('div');
+    $UnitsButtonContainer.setAttribute('class', 'units-button-container');
+
+    const $InchesButton = document.createElement('a');
+    $InchesButton.setAttribute('href', '#');
+    $InchesButton.setAttribute('class', 'unit-button');
+    $InchesButton.innerHTML= 'inches';
+
+    const $cmButton = document.createElement('a');
+    $cmButton.setAttribute('href', '#');
+    $cmButton.setAttribute('class', 'unit-button button-selected');
+    $cmButton.innerHTML= 'cm';
+
+    const $mBottom = document.createElement('div');
+    $mBottom.setAttribute('class', 'm-bottom');
+    
+    const $IllustrationContainer = document.createElement('div');
+    $IllustrationContainer.setAttribute('class', 'illustration');
+
+    const $IllustrationActual = CreateSVG(items.id);
+
+    $Item.append($mTop);
+    $mTop.append($TextBox);
+    $mTop.append($UnitsButtonContainer);
+    $UnitsButtonContainer.append($InchesButton);
+    $UnitsButtonContainer.append($cmButton);
+    $Item.append($mBottom);
+    $mBottom.append($IllustrationContainer);
+    $IllustrationContainer.append($IllustrationActual);
+
+    
+    return $Item;
+</script>
