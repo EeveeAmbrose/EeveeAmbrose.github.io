@@ -174,7 +174,7 @@ const BuildNav = function (
     });
 }
 
-BuildNav();
+// BuildNav();
 
 
 ////?     Clamps  "ill clamp ya!"                               
