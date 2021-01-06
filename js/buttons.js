@@ -100,7 +100,7 @@ function MainButton() {
         const $wizzHolder = document.querySelector('.wizz-holder');
         this.classList.add('button-inactive');
         $wizzHolder.style.minWidth = '200vw';
-        $wizzHolder.style.transition = 'transform 1.5s ease-in';
+        $wizzHolder.style.transition = `transform ${transitionTime}s ease-in`;
         buildScreen();
         $wizzHolder.style.transform = 'translateX(-100vw)';
 

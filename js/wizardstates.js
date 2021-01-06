@@ -161,24 +161,24 @@ const stateUsersLocation = {
 	queries:[
 		{
 			type: 'radio-box',
-			idOfInput: 'canada',
-			labelText: 'CANADA',
-		},
-		{
-			type: 'radio-box',
 			idOfInput: 'us',
 			labelText: 'USA',
 		},
 		{
 			type: 'radio-box',
-			idOfInput: 'eu',
-			labelText: 'EU',
+			idOfInput: 'canada',
+			labelText: 'CANADA',
 		},
 		{
 			type: 'radio-box',
 			idOfInput: 'australia',
 			labelText: 'AUSTRALIA',
-		}		
+		},
+		{
+			type: 'radio-box',
+			idOfInput: 'rest-of-world',
+			labelText: 'REST OF WORLD',
+		},		
 	],
 	onAnswer(answer){
 		if(answer !== 'CANADA'){
