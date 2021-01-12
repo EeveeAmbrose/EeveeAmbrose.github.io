@@ -245,7 +245,7 @@ const stateBariatricRuleOut = {
 }
 
 const stateGliderRuleOut = {
-	question: 'Does the user only need a stationary chair?',
+	question: 'Does the user only need a stationary gliding chair?',
 	formName: 'stationary-only',
 	verification: validateRadioForm,
 	queries: [
@@ -272,7 +272,7 @@ const stateGliderRuleOut = {
 }
 
 const stateTransportRuleOut = {
-	question: 'Will the chair be used to transport the user in a motor vehicle?',
+	question: 'Will this user need to use this chair while in transport with a motor vehicle, van, or public transport?',
 	formName: 'transport-only',
 	verification: validateRadioForm,
 	queries:[
@@ -327,7 +327,7 @@ const stateTransportSelfPropel = {
 }
 
 const stateHygeineRuleOut = {
-	question: 'Does the chair only need to accommodate hygiene and commode needs?',
+	question: 'Does the chair only need to accommodate shower, bathing or commode needs?',
 	formName: 'needs-hygeine',
 	verification:  validateRadioForm, //validateCheckForm, validateRadioForm
 	queries:[
