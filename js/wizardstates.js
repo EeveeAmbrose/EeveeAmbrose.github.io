@@ -121,11 +121,16 @@ const stateEmailAdress = {
 
 
 const stateUserType = {
-	question: 'Which best describes you?',
+	question: 'Who are you getting a chair for?',
 	tooltip: 'How do we use this information?',
 	formName: 'user-type',
 	verification:  validateRadioForm,
 	queries:[
+		{
+			type: 'radio-box',
+			idOfInput: 'end-user',
+			labelText: 'MYSELF',
+		},
 		{
 			type: 'radio-box',
 			idOfInput: 'family-member',
@@ -133,18 +138,13 @@ const stateUserType = {
 		},
 		{
 			type: 'radio-box',
-			idOfInput: 'end-user',
-			labelText: 'END USER',
-		},
-		{
-			type: 'radio-box',
-			idOfInput: 'clinician',
-			labelText: 'CLINICIAN',
-		},
-		{
-			type: 'radio-box',
 			idOfInput: 'dealer',
-			labelText: 'DEALER',
+			labelText: 'CUSTOMER',
+		},
+		{
+			type: 'radio-box',
+			idOfInput: 'physician',
+			labelText: 'PATIENT',
 		}
 	],
 	onAnswer(){
@@ -161,7 +161,7 @@ const stateUsersLocation = {
 	queries:[
 		{
 			type: 'radio-box',
-			idOfInput: 'us',
+			idOfInput: 'usa',
 			labelText: 'USA',
 		},
 		{
@@ -187,7 +187,6 @@ const stateUsersLocation = {
 		return stateOneTimeContact
 	}
 }
-
 
 const stateTest = {
 	question: 'Please select all that apply.',
