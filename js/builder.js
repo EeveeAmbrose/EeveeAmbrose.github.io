@@ -1,9 +1,5 @@
 // //?                        Creates all the changing bits of the wizz.                              
 
-
-
-
-
 function BuildTextInput(formName, idOfInput, required, labelText,) {
 
     return {
@@ -206,7 +202,7 @@ function InsertQueries(queries) {
 
 // //? Build the wizz
 
-function BuildWizz(question, tooltip, verification) {
+function BuildWizz(question, tooltip, verification, toolTipMessageID) {
 
     const $wizzHolder = document.querySelector('.wizz-holder');
     const WizzBoxStructure =
@@ -241,7 +237,10 @@ function BuildWizz(question, tooltip, verification) {
                                                 {
                                                     tag: 'a',
                                                     class: 'tooltip',
-                                                    text: tooltip, 
+                                                    text: tooltip,
+                                                    attributes: {
+                                                        id: toolTipMessageID,
+                                                    }
                                                 }
                                             ]
                                         },
@@ -333,9 +332,9 @@ function BuildWizz(question, tooltip, verification) {
 
   //? Collect and build it all
 
-  function buildScreen(){ //! would it be better to make this take a list of arguments instead of an array??
+  function buildScreen(){
     const state = forms[currentFormNumber];
-    BuildWizz(state.question, state.tooltip, state.verification);
+    BuildWizz(state.question, state.tooltip, state.toolTipMessageID, state.verification);
     InsertQueries(state.queries);
     
     

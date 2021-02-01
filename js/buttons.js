@@ -41,8 +41,6 @@ function MainButton() {
         let verifyFunction = verifyLookUp[inputID];
 
 
-
-
         if($inputList[i].type === 'radio'){
             if($inputList[i].checked){
                 currentAnswerInfo.value = userInput;
@@ -84,11 +82,9 @@ function MainButton() {
     if(errorExists){
         return
     } else {
-        if (answerHandler(currentAnswerInfo)){
-            console.log('Load chair suggestion page');
-            console.log(currentWeights);
-            return;
-        }
+        answerHandler(currentAnswerInfo)
+
+        //Can i add my event listeners for the tooltips here?!
 
         currentFormNumber ++;
         if(currentFormNumber === forms.length){    
@@ -133,11 +129,6 @@ function SelectUnits(o){
         $cmButton.classList.remove('button-selected');
     }
 };
-
-
-
-
-
 
 // check for validity
 // if valid {

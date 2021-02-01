@@ -54,6 +54,7 @@
 const stateBegin = {
 	question: 'Please provide your name.',
 	tooltip: 'How do we use this information?',
+	toolTipMessage: 'testing!!',
 	formName: 'user-name',
 	queries:[
 		{
