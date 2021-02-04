@@ -1,3 +1,29 @@
+
+// create event listeners for the tooltips if they exist
+function tooltipCreator(){
+    let currentWizzTooltip;
+    currentWizzTooltip = document.querySelector('.tooltip');
+    const tooltipMessage = forms[currentFormNumber].tooltipPopUp
+    currentWizzTooltip.addEventListener('mouseover', () =>{
+        const popup = document.createElement('div');
+        popup.setAttribute('class', 'popup')
+        popup.appendChild(document.createTextNode(tooltipMessage))
+        document.querySelector('.icsg-project-capsule').append(popup)
+        document.addEventListener('mousemove', a =>{
+            var mouseX = a.clientX + 'px';
+            var mouseY = a.clientY + 'px';
+            console.log('x=' + mouseX + ' y=' + mouseY)
+            popup.style.top = mouseY
+            popup.style.left = mouseX
+        })
+    })
+}
+
+function mousepos(){
+
+
+}
+
 function MainButton() {
 
     let errorExists = false;
@@ -84,8 +110,6 @@ function MainButton() {
     } else {
         answerHandler(currentAnswerInfo)
 
-        //Can i add my event listeners for the tooltips here?!
-
         currentFormNumber ++;
         if(currentFormNumber === forms.length){    
         console.log(userData)
@@ -93,6 +117,7 @@ function MainButton() {
             terminateQuiz()
             return;
         }
+
         const $wizzHolder = document.querySelector('.wizz-holder');
         this.classList.add('button-inactive');
         $wizzHolder.style.minWidth = '200vw';
@@ -100,7 +125,6 @@ function MainButton() {
         buildScreen();
         $wizzHolder.style.transform = 'translateX(-100vw)';
 
-        
         function wizzReset() {
             const $previousWizz = document.querySelector('#wizz_' + (currentFormNumber - 1));
             $wizzHolder.style.transition = 'none';
@@ -108,9 +132,12 @@ function MainButton() {
             $wizzHolder.style.minWidth = '100vw';
             $wizzHolder.style.transform = 'translateX(0vw)';
             transitionEvent && $wizzHolder.removeEventListener(transitionEvent, wizzReset);
+
         }
 
         transitionEvent && $wizzHolder.addEventListener(transitionEvent, wizzReset);
+
+
 
 
     }

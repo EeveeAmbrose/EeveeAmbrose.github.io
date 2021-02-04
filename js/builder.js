@@ -202,8 +202,7 @@ function InsertQueries(queries) {
 
 // //? Build the wizz
 
-function BuildWizz(question, tooltip, verification, toolTipMessageID) {
-
+function BuildWizz(question, tooltip, verification) {
     const $wizzHolder = document.querySelector('.wizz-holder');
     const WizzBoxStructure =
     [   
@@ -238,9 +237,6 @@ function BuildWizz(question, tooltip, verification, toolTipMessageID) {
                                                     tag: 'a',
                                                     class: 'tooltip',
                                                     text: tooltip,
-                                                    attributes: {
-                                                        id: toolTipMessageID,
-                                                    }
                                                 }
                                             ]
                                         },
@@ -334,7 +330,7 @@ function BuildWizz(question, tooltip, verification, toolTipMessageID) {
 
   function buildScreen(){
     const state = forms[currentFormNumber];
-    BuildWizz(state.question, state.tooltip, state.toolTipMessageID, state.verification);
+    BuildWizz(state.question, state.tooltip, state.verification);
     InsertQueries(state.queries);
     
     

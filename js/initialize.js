@@ -11,6 +11,7 @@
 
 var callback = function () {
   buildScreen();
+  tooltipCreator()
 };
 
 if (

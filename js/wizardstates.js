@@ -54,7 +54,7 @@
 const stateBegin = {
 	question: 'Please provide your name.',
 	tooltip: 'How do we use this information?',
-	toolTipMessage: 'testing!!',
+	tooltipPopUp: 'Broda uses this information for a one time contact',
 	formName: 'user-name',
 	queries:[
 		{

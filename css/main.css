@@ -300,6 +300,23 @@
   /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
+.icsg-project-capsule .popup {
+  padding: 25px;
+  background-color: white;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  z-index: 999;
+}
+
 .icsg-project-capsule .items {
   font-size: 24px;
   width: 65%;
