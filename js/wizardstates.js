@@ -385,7 +385,7 @@ const stateSelfPropel = {
 }
 
 const stateArmRemove = {
-	question: 'Does the user need removable armrests and layflat recline?',
+	question: 'Does the user need removable armrests and lay flat recline?',
 	tooltip: 'What are these features for?',
 	formName: 'remove-arms-layflat',
 	verification:  validateRadioForm, //validateCheckForm, validateRadioForm
@@ -570,11 +570,11 @@ const stateRehabRuleOut = {
 
 
 const forms = [
-	// stateBegin,
+	stateBegin,
 	// stateUsersLocation,
 	// stateOneTimeContact,
 	// stateEmailAdress,
-	stateUserType,
+	// stateUserType,
 
 	// stateBariatricRuleOut,
 	// stateGliderRuleOut,
@@ -582,13 +582,9 @@ const forms = [
 	//stateHygeineRuleOut,
 	//stateLowWeight,
 	//stateSelfPropel,
-	//stateArmRemove,
+	// stateArmRemove,
 	//stateDailyUse,
 	//statePediatricRuleOut,
-	//stateRockingFeature,
-	//stateRehabRuleOut
-	
-
-	// stateUserType,
-	// stateTest,
+	// stateRockingFeature,
+	// stateRehabRuleOut
 ]
