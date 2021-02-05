@@ -189,30 +189,6 @@ const stateUsersLocation = {
 	}
 }
 
-const stateTest = {
-	question: 'Please select all that apply.',
-	tooltip: 'How do we use this information?',
-	formName: 'chair-options',
-	verification:  validateCheckForm,
-	queries:[
-		{
-			type: 'check-box',
-			idOfInput: 'wheels',
-			labelText: 'Wheels', 
-		},
-		{
-			type: 'check-box',
-			idOfInput: 'headrest',
-			labelText: 'Headrest', 
-		},
-		{
-			type: 'check-box',
-			idOfInput: 'back-pillow',
-			labelText: 'Back Pillow', 
-		}
-	]
-}
-
 
 //?     Start chair category questions
 
@@ -594,11 +570,11 @@ const stateRehabRuleOut = {
 
 
 const forms = [
-	stateBegin,
+	// stateBegin,
 	// stateUsersLocation,
 	// stateOneTimeContact,
 	// stateEmailAdress,
-	// stateUserType,
+	stateUserType,
 
 	// stateBariatricRuleOut,
 	// stateGliderRuleOut,
