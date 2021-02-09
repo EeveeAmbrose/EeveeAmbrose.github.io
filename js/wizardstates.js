@@ -54,7 +54,7 @@
 const stateBegin = {
 	question: 'Please provide your name.',
 	tooltip: 'How do we use this information?',
-	tooltipPopUp: 'Broda uses this information for a one time contact',
+	tooltipMessage: 'Broda uses this information for a one time contact',
 	formName: 'user-name',
 	queries:[
 		{
@@ -105,6 +105,7 @@ const stateOneTimeContact = {
 const stateEmailAdress = {
 	question: 'Please provide your email address.',
 	tooltip: 'How do we use this information?',
+	tooltipMessage: 'This is place holder text just to test that this feature is working. What if the line is really really realllllyyy longggggggg!?',
 	formName: 'email-address',
 	queries:[
 		{
