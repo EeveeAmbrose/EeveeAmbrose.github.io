@@ -161,16 +161,32 @@
   }
   
   .popup {
-    padding: 25px;
-    background-color: white;
-    border: 1px solid black;
+    padding: 27px;
+    // padding-top: 18px;
+    // background-color: white;
+    // border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
+    transform: translate(-51%, 5%);
     // top: 100px;
     // left: 10px;
     z-index: 999;
+   
+    
+    p {
+      margin-top: 25px;
+    }
+
+    .tooltip-holder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
+        filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
+    }
   }
     
   //$ +++++++++++++++++++++++++++++ USER INPUT FIELDS +++++++++++++++++++++++++++++
