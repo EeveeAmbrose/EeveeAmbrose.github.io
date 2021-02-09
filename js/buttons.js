@@ -14,7 +14,8 @@ function tooltipCreator(){
         var draw = SVG().addTo(popup).size('100%','100%').addClass('tooltip-holder')
         const popupHeight = popup.offsetHeight - 4
         const popupWidth = popup.offsetWidth - 4
-        var titleShape = draw.polygon(`2,${popupHeight / 3} 2,${popupHeight} ${popupWidth},${popupHeight} ${popupWidth},${popupHeight / 3} ${(popupWidth * .5) + 20},${popupHeight / 3} ${popupWidth * .5},2 ${(popupWidth * .5) - 20},${popupHeight / 3} `).attr({stroke: 'black', 'stroke-width': 1.5, 'stroke-alignment': 'center', fill: 'white'}).addClass('zindex')
+        var titleShape = draw.polygon(`2,${popupHeight / 3} 2,${popupHeight} ${popupWidth},${popupHeight} ${popupWidth},${popupHeight / 3} ${(popupWidth * .5) + 20},${popupHeight / 3} ${popupWidth * .5},2 ${(popupWidth * .5) - 20},${popupHeight / 3} `)
+        .attr({stroke: 'black', 'stroke-width': 1.5, 'stroke-alignment': 'center', fill: 'white'}).addClass('zindex')
 
 
         // renders the tool tip and follows the mouse
