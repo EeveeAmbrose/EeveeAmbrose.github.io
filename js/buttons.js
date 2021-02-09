@@ -9,12 +9,21 @@ function tooltipCreator(){
         popup.setAttribute('class', 'popup')
         popup.appendChild(document.createTextNode(tooltipMessage))
         document.querySelector('.icsg-project-capsule').append(popup)
-        document.addEventListener('mousemove', a =>{
-            var mouseX = a.clientX + 'px';
-            var mouseY = a.clientY + 'px';
-            console.log('x=' + mouseX + ' y=' + mouseY)
+        var draw = SVG().addTo('body').size(300, 300)
+
+        // renders the tool tip and follows the mouse
+        function renderTooltip(a) {
+            var mouseX = a.clientX + 10 + 'px';
+            var mouseY = a.clientY + 10 + 'px';
             popup.style.top = mouseY
-            popup.style.left = mouseX
+            popup.style.left = mouseX   
+        }
+        document.addEventListener('mousemove', renderTooltip)
+        
+        // on mouse out remove the popup
+        currentWizzTooltip.addEventListener('mouseout', () =>{
+            document.removeEventListener('mousemove', renderTooltip)
+            popup.remove()
         })
     })
 }
