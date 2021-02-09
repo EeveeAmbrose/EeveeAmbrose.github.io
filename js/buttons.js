@@ -3,20 +3,26 @@
 function tooltipCreator(){
     let currentWizzTooltip;
     currentWizzTooltip = document.querySelector('.tooltip');
-    const tooltipMessage = forms[currentFormNumber].tooltipPopUp
     currentWizzTooltip.addEventListener('mouseover', () =>{
         const popup = document.createElement('div');
         popup.setAttribute('class', 'popup')
-        popup.appendChild(document.createTextNode(tooltipMessage))
+        const tooltipTextP = document.createElement('p')
+        const tooltipMessage = document.createTextNode(forms[currentFormNumber].tooltipMessage)
+        tooltipTextP.appendChild(tooltipMessage)
+        popup.appendChild(tooltipTextP)
         document.querySelector('.icsg-project-capsule').append(popup)
-        var draw = SVG().addTo('body').size(300, 300)
+        var draw = SVG().addTo(popup).size('100%','100%').addClass('tooltip-holder')
+        const popupHeight = popup.offsetHeight - 4
+        const popupWidth = popup.offsetWidth - 4
+        var titleShape = draw.polygon(`2,${popupHeight / 3} 2,${popupHeight} ${popupWidth},${popupHeight} ${popupWidth},${popupHeight / 3} ${(popupWidth * .5) + 20},${popupHeight / 3} ${popupWidth * .5},2 ${(popupWidth * .5) - 20},${popupHeight / 3} `).attr({stroke: 'black', 'stroke-width': 1.5, 'stroke-alignment': 'center', fill: 'white'}).addClass('zindex')
+
 
         // renders the tool tip and follows the mouse
         function renderTooltip(a) {
             var mouseX = a.clientX + 10 + 'px';
             var mouseY = a.clientY + 10 + 'px';
             popup.style.top = mouseY
-            popup.style.left = mouseX   
+            popup.style.left = mouseX
         }
         document.addEventListener('mousemove', renderTooltip)
         
