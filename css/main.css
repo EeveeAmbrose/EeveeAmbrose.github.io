@@ -301,9 +301,7 @@
 }
 
 .icsg-project-capsule .popup {
-  padding: 25px;
-  background-color: white;
-  border: 1px solid black;
+  padding: 27px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -314,7 +312,22 @@
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
+  -webkit-transform: translate(-51%, 5%);
+          transform: translate(-51%, 5%);
   z-index: 999;
+}
+
+.icsg-project-capsule .popup p {
+  margin-top: 25px;
+}
+
+.icsg-project-capsule .popup .tooltip-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
 }
 
 .icsg-project-capsule .items {
