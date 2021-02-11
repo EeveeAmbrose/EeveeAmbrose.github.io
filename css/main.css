@@ -301,16 +301,7 @@
 }
 
 .icsg-project-capsule .popup {
-  padding: 27px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  max-width: 500px;
   position: absolute;
   -webkit-transform: translate(-51%, 5%);
           transform: translate(-51%, 5%);
@@ -318,7 +309,11 @@
 }
 
 .icsg-project-capsule .popup p {
-  margin-top: 25px;
+  padding: 15px;
+  padding-top: 40px;
+  margin: 0px;
+  text-align: center;
+  position: relative;
 }
 
 .icsg-project-capsule .popup .tooltip-holder {
