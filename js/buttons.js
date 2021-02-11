@@ -1,4 +1,3 @@
-
 // create event listeners for the tooltips if they exist
 function tooltipCreator(){
     let currentWizzTooltip;
@@ -9,14 +8,25 @@ function tooltipCreator(){
         const tooltipTextP = document.createElement('p')
         const tooltipMessage = document.createTextNode(forms[currentFormNumber].tooltipMessage)
         tooltipTextP.appendChild(tooltipMessage)
+
         popup.appendChild(tooltipTextP)
         document.querySelector('.icsg-project-capsule').append(popup)
         var draw = SVG().addTo(popup).size('100%','100%').addClass('tooltip-holder')
-        const popupHeight = popup.offsetHeight - 4
-        const popupWidth = popup.offsetWidth - 4
-        var titleShape = draw.polygon(`2,${popupHeight / 3} 2,${popupHeight} ${popupWidth},${popupHeight} ${popupWidth},${popupHeight / 3} ${(popupWidth * .5) + 20},${popupHeight / 3} ${popupWidth * .5},2 ${(popupWidth * .5) - 20},${popupHeight / 3} `)
-        .attr({stroke: 'black', 'stroke-width': 1.5, 'stroke-alignment': 'center', fill: 'white'}).addClass('zindex')
+        const offSetPopupHeight = popup.offsetHeight - 4
+        const offsetPopupWidth = popup.offsetWidth - 4
 
+        const tooltipPolygonPoints = [
+            `2,25`,
+            `2,${offSetPopupHeight}`,
+            `${offsetPopupWidth},${offSetPopupHeight}`,
+            `${offsetPopupWidth},25`,
+            `${(offsetPopupWidth * .5) + 20},25`,
+            `${offsetPopupWidth * .5},2`,
+            `${(offsetPopupWidth * .5) - 20},25`,
+        ].join(' ')
+
+        var titleShape = draw.polygon(tooltipPolygonPoints)
+        .attr({stroke: 'black', 'stroke-width': 1.5, 'stroke-alignment': 'center', fill: 'white'}).addClass('zindex')
 
         // renders the tool tip and follows the mouse
         function renderTooltip(a) {
@@ -25,6 +35,7 @@ function tooltipCreator(){
             popup.style.top = mouseY
             popup.style.left = mouseX
         }
+
         document.addEventListener('mousemove', renderTooltip)
         
         // on mouse out remove the popup
@@ -33,11 +44,6 @@ function tooltipCreator(){
             popup.remove()
         })
     })
-}
-
-function mousepos(){
-
-
 }
 
 function MainButton() {
@@ -128,11 +134,12 @@ function MainButton() {
 
         currentFormNumber ++;
         if(currentFormNumber === forms.length){    
-        console.log(userData)
-        console.log(currentWeights);
+            console.log(userData)
+            console.log(currentWeights);
             terminateQuiz()
             return;
         }
+
 
         const $wizzHolder = document.querySelector('.wizz-holder');
         this.classList.add('button-inactive');
@@ -148,6 +155,12 @@ function MainButton() {
             $wizzHolder.style.minWidth = '100vw';
             $wizzHolder.style.transform = 'translateX(0vw)';
             transitionEvent && $wizzHolder.removeEventListener(transitionEvent, wizzReset);
+            console.log('reset!!')
+            
+            //if a tooltip message exists build the tooltip listeners on the press of "next"
+            if(forms[currentFormNumber].tooltipMessage){
+                tooltipCreator()
+            } 
 
         }
 

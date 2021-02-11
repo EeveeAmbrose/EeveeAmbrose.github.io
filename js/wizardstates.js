@@ -158,6 +158,7 @@ const stateUserType = {
 const stateUsersLocation = {
 	question: 'What is your general location?',
 	tooltip: 'How do we use this information?',
+	tooltipMessage: 'testing aAAAAAAAAAAAAAAAAaaaaaaaaaaaaa what does this look like if it is forced to to a word wrap? Does it break when it is really long??',
 	formName: 'general-location',
 	verification: validateRadioForm, //validateCheckForm, validateRadioForm
 	queries:[
