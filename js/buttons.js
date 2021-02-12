@@ -165,10 +165,6 @@ function MainButton() {
         }
 
         transitionEvent && $wizzHolder.addEventListener(transitionEvent, wizzReset);
-
-
-
-
     }
 };
 
