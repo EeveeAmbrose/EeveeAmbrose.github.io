@@ -51,76 +51,6 @@
 	]
 */
 
-const stateBegin = {
-	question: 'Please provide your name.',
-	tooltip: 'How do we use this information?',
-	tooltipMessage: 'Broda uses this information for a one time contact',
-	formName: 'user-name',
-	queries:[
-		{
-			type: 'text-box',
-			idOfInput: 'first-name',
-			required: 'true',
-			labelText: 'FIRST NAME',
-			// verifyID: 'test'
-		},
-		{
-			type: 'text-box',
-			idOfInput: 'last-name',
-			required: 'true',
-			labelText: 'LAST NAME',
-			// verifyID: 'test'
-		},
-	],
-	onAnswer(answer){
-		return stateUsersLocation
-	}
-}
-
-
-const stateOneTimeContact = {
-	question: 'Are you ok with a one time contact from a sales person regarding your results?',
-	formName: 'one-time-contact',
-	verification: validateRadioForm, //validateCheckForm, validateRadioForm
-	queries:[
-		{
-			type: 'radio-box',
-			idOfInput: 'contact-ok-yes',
-			labelText: 'YES',
-		},
-		{
-			type: 'radio-box',
-			idOfInput: 'contact-ok-no',
-			labelText: 'NO',
-		}
-	],
-	onAnswer(answer){
-		if(answer === 'YES'){
-			return stateEmailAdress
-		}
-		return stateUserType
-	}
-}
-
-const stateEmailAdress = {
-	question: 'Please provide your email address.',
-	tooltip: 'How do we use this information?',
-	tooltipMessage: 'This is place holder text just to test that this feature is working. What if the line is really really realllllyyy longggggggg!?',
-	formName: 'email-address',
-	queries:[
-		{
-			type: 'text-box', 
-			idOfInput: 'email-address',
-			required: 'true',
-			labelText: 'EMAIL ADDRESS',
-			verifyID: 'VerifyEmail'
-		}
-	],
-	onAnswer(){
-		return stateUserType
-	}
-}
-
 
 const stateUserType = {
 	question: 'Who are you getting a chair for?',
@@ -150,15 +80,14 @@ const stateUserType = {
 		}
 	],
 	onAnswer(){
-		return stateBariatricRuleOut
+		return stateUsersLocation
 	}
 }
-
 
 const stateUsersLocation = {
 	question: 'What is your general location?',
 	tooltip: 'How do we use this information?',
-	tooltipMessage: 'testing aAAAAAAAAAAAAAAAAaaaaaaaaaaaaa what does this look like if it is forced to to a word wrap? Does it break when it is really long??',
+	tooltipMessage: '',
 	formName: 'general-location',
 	verification: validateRadioForm, //validateCheckForm, validateRadioForm
 	queries:[
@@ -181,16 +110,80 @@ const stateUsersLocation = {
 			type: 'radio-box',
 			idOfInput: 'rest-of-world',
 			labelText: 'REST OF WORLD',
-		},		
+		},
 	],
 	onAnswer(answer){
-		if(answer !== 'CANADA'){
+		if ( answer === 'USA') {
 			setCategory('gsaCanadaOnly', 0)
-		} 
-		return stateOneTimeContact
+			return stateUsaSpecificLocation
+		} else if(answer === 'CANADA'){
+			return stateCanadaSpecificLocation
+		} else if (answer === 'AUSTRALIA') {
+			setCategory('gsaCanadaOnly', 0)
+			return stateBariatricRuleOut
+		} else (answer === 'REST OF WORLD')
+			setCategory('gsaCanadaOnly', 0)
+			return stateBariatricRuleOut
 	}
 }
 
+const stateUsaSpecificLocation = {
+	question: 'Please provide your state, city, and zip code.',
+	tooltip: 'How do we use this information?',
+	formName: 'usa-specific-location',
+	queries:[
+		{
+			type: 'text-box',
+			idOfInput: 'usa-specific-location-state',
+			required: 'true',
+			labelText: 'STATE',
+		},
+		{
+			type: 'text-box',
+			idOfInput: 'usa-specific-location-city',
+			required: 'true',
+			labelText: 'CITY',
+		},
+		{
+			type: 'text-box',
+			idOfInput: 'usa-specific-location-zip-code',
+			required: 'true',
+			labelText: 'ZIP CODE',
+		},
+	],
+	onAnswer(answer){
+		return stateBariatricRuleOut
+	}
+}
+
+const stateCanadaSpecificLocation = {
+	question: 'Please provide your Province/Territory, City, and Postal Code.',
+	tooltip: 'How do we use this information?',
+	formName: 'canada-specific-location',
+	queries:[
+		{
+			type: 'text-box',
+			idOfInput: 'canada-specific-location-province-territory',
+			required: 'true',
+			labelText: 'PROVINCE/TERRITORY',
+		},
+		{
+			type: 'text-box',
+			idOfInput: 'canada-specific-location-city',
+			required: 'true',
+			labelText: 'CITY',
+		},
+		{
+			type: 'text-box',
+			idOfInput: 'canada-specific-location-postal-code',
+			required: 'true',
+			labelText: 'POSTAL CODE',
+		},
+	],
+	onAnswer(answer){
+		return stateBariatricRuleOut
+	}
+}
 
 //?     Start chair category questions
 
@@ -301,6 +294,7 @@ const stateTransportSelfPropel = {
 			setChair('synthesisTransport', 1)
 			setChair('encorePedal', 0)
 		}
+		return stateName
 	}
 }
 
@@ -417,6 +411,7 @@ const stateArmRemove = {
 			addChair('centricPositioning', .33)
 			addChair('midlinePositioning', .33)
 		}
+		return stateName
 	}
 }
 
@@ -440,15 +435,13 @@ const stateBariatricDailyUse = {
 		if(answer === 'YES'){
 			setChair('vanguard' ,1)
 		 	setChair('reviveBariatric' ,1)
-			return
 		}
 		if(answer === 'NO'){
 			setChair('reviveBariatric' ,0)
-			return
 		}
+		return stateName
 	}
 }
-
 
 const stateReviveDailyUse = {
 	question: 'Does the user also need a chair for daily use?',
@@ -472,6 +465,7 @@ const stateReviveDailyUse = {
 		}
 		//if no:
 		setAllExcept('hygiene', 0)
+		return stateName
 	}
 }
 
@@ -495,10 +489,11 @@ const statePediatricRuleOut = {
 	onAnswer(answer){
 		if(answer === 'NO'){
 			setChair('aspire', 0)
-			return
+		} else {
+			//if yes:
+			setChair('aspire', 1)
 		}
-		//if yes:
-		setChair('aspire', 1)
+		return stateName
 	}
 }
 
@@ -537,7 +532,6 @@ const stateRockingFeature = {
 	}	
 }
 
-
 const stateRehabRuleOut = {
 	question: 'Does the user require a chair to accommodate and assist with a corrective or complex rehab program?',
 	tooltip: 'What does this mean?',
@@ -559,34 +553,111 @@ const stateRehabRuleOut = {
 		if(answer === 'YES'){
 			addChair('encoreRehab', .2)
 			addChair('latitudeRehab', .2)
-			return
+		} else {
+			//if no:
+			addChair('sashayPedal', .2)
+			addChair('encorePedal', .2)
+			addChair('latitudePedal', .2)
+			addChair('latitudeRehab', .2)
 		}
-		//if no:
-		addChair('sashayPedal', .2)
-		addChair('encorePedal', .2)
-		addChair('latitudePedal', .2)
-		addChair('latitudeRehab', .2)
+		return stateName
+		
+	}
+}
+
+
+//? Ending personal questions
+const stateName = {
+	question: 'Please provide your name.',
+	tooltip: 'How do we use this information?',
+	tooltipMessage: 'Broda uses this information for a one time contact',
+	formName: 'user-name',
+	queries:[
+		{
+			type: 'text-box',
+			idOfInput: 'first-name',
+			required: 'true',
+			labelText: 'FIRST NAME',
+			// verifyID: 'test'
+		},
+		{
+			type: 'text-box',
+			idOfInput: 'last-name',
+			required: 'true',
+			labelText: 'LAST NAME',
+			// verifyID: 'test'
+		},
+	],
+	onAnswer(answer){
+		return stateUsersLocation
+	}
+}
+
+
+const stateOneTimeContact = {
+	question: 'Are you ok with a one time contact from a sales person regarding your results?',
+	formName: 'one-time-contact',
+	verification: validateRadioForm, //validateCheckForm, validateRadioForm
+	queries:[
+		{
+			type: 'radio-box',
+			idOfInput: 'contact-ok-yes',
+			labelText: 'YES',
+		},
+		{
+			type: 'radio-box',
+			idOfInput: 'contact-ok-no',
+			labelText: 'NO',
+		}
+	],
+	onAnswer(answer){
+		if(answer === 'YES'){
+			return stateEmailAdress
+		}
+		return stateUserType
+	}
+}
+
+const stateEmailAdress = {
+	question: 'Please provide your email address.',
+	tooltip: 'How do we use this information?',
+	tooltipMessage: 'This is place holder text just to test that this feature is working. What if the line is really really realllllyyy longggggggg!?',
+	formName: 'email-address',
+	queries:[
+		{
+			type: 'text-box', 
+			idOfInput: 'email-address',
+			required: 'true',
+			labelText: 'EMAIL ADDRESS',
+			verifyID: 'VerifyEmail'
+		}
+	],
+	onAnswer(){
+		return stateUserType
 	}
 }
 
 
 
 const forms = [
-	stateBegin,
+	stateUserType,
 	// stateUsersLocation,
-	// stateOneTimeContact,
-	// stateEmailAdress,
-	// stateUserType,
-
-	// stateBariatricRuleOut,
-	// stateGliderRuleOut,
-	// stateTransportRuleOut,
+	// stateUsaSpecificLocation,
+	// stateCanadaSpecificLocation,
+	
+	//stateBariatricRuleOut,
+	//stateGliderRuleOut,
+	//stateTransportRuleOut,
 	//stateHygeineRuleOut,
 	//stateLowWeight,
 	//stateSelfPropel,
-	// stateArmRemove,
+	//stateArmRemove,
 	//stateDailyUse,
 	//statePediatricRuleOut,
-	// stateRockingFeature,
-	// stateRehabRuleOut
+	//stateRockingFeature,
+	//stateRehabRuleOut
+
+	//stateName,
+	//stateOneTimeContact,
+	//stateEmailAdress,
 ]
