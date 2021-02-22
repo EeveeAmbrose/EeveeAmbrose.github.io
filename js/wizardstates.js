@@ -589,7 +589,7 @@ const stateName = {
 		},
 	],
 	onAnswer(answer){
-		return stateUsersLocation
+		return stateOneTimeContact
 	}
 }
 
@@ -614,7 +614,6 @@ const stateOneTimeContact = {
 		if(answer === 'YES'){
 			return stateEmailAdress
 		}
-		return stateUserType
 	}
 }
 
@@ -632,15 +631,14 @@ const stateEmailAdress = {
 			verifyID: 'VerifyEmail'
 		}
 	],
-	onAnswer(){
-		return stateUserType
-	}
+	// onAnswer(){
+	// }
 }
 
 
 
 const forms = [
-	stateUserType,
+	// stateUserType,
 	// stateUsersLocation,
 	// stateUsaSpecificLocation,
 	// stateCanadaSpecificLocation,
@@ -657,7 +655,7 @@ const forms = [
 	//stateRockingFeature,
 	//stateRehabRuleOut
 
-	//stateName,
+	stateName,
 	//stateOneTimeContact,
 	//stateEmailAdress,
 ]
