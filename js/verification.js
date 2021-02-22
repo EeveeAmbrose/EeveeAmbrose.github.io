@@ -2,8 +2,14 @@
 
 const verifyLookUp = {
 	'email-address': VerifyEmail,
-	'first-name': VerifyFName,
-	'last-name': VerifyLName,
+	'first-name': VerifyAlphabetOnly,
+	'last-name': VerifyAlphabetOnly,
+	'usa-specific-location-state': VerifyAlphabetOnly,
+	'usa-specific-location-city': VerifyAlphabetOnly,
+	'usa-specific-location-zip-code': VerifyNumbersOnly, //! This still needs to be made
+	'canada-specific-location-province-territory': VerifyAlphabetOnly,
+	'canada-specific-location-city': VerifyAlphabetOnly,
+	'canada-specific-location-postal-code': VerifyCanadaPostalCode, //! this still needs to be made!
 }
 
 //?                 START OF GENERAL CHECKS                    
@@ -81,13 +87,13 @@ function VerifyEmail(userInput) {
 		return blankError;
 	}
 
-	const Emailerror =validateEmails(userInput);
+	const Emailerror = validateEmails(userInput);
 	if (Emailerror !== undefined) {
 		return Emailerror;
 	}
 };
 
-function VerifyFName(userInput) {
+function VerifyAlphabetOnly(userInput) {
 
 	const blankError = isBlank(userInput);
 	if (blankError !== undefined) {
@@ -97,16 +103,5 @@ function VerifyFName(userInput) {
 	const containsNumberError = ContainsNumber(userInput);
 	if (containsNumberError !== undefined) {
 		return containsNumberError;
-	}
-};
-
-function VerifyLName(userInput) {
-
-	if (isBlank(userInput) !== undefined) {
-		return isBlank(userInput);
-	}
-	
-	if (ContainsNumber(userInput) !== undefined) {
-		return ContainsNumber(userInput);
 	}
 };
