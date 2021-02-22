@@ -2,6 +2,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-top: 0px;
+  font-family: 'Encode Sans', sans-serif;
 }
 
 .icsg-body {
@@ -9,7 +10,7 @@
   color: #333;
   margin: 0px;
   padding: 0px;
-  font-family: "Gotham", sans-serif;
+  font-family: 'Encode Sans', sans-serif;
 }
 
 .icsg-project-capsule h1,
@@ -97,7 +98,7 @@
 }
 
 .icsg-project-capsule h1 {
-  font-size: 5em;
+  font-size: 6em;
 }
 
 .icsg-project-capsule h2 {
@@ -109,7 +110,7 @@
 }
 
 .icsg-project-capsule h4 {
-  font-size: 2.1em;
+  font-size: 2.2em;
 }
 
 .icsg-project-capsule h5 {
@@ -140,9 +141,9 @@
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
-  font-family: "Gotham";
+  font-family: 'Encode Sans', sans-serif;
   font-size: 40px;
-  font-weight: normal;
+  font-weight: bold;
   padding: 10px 38px;
   text-decoration: none;
   -webkit-touch-callout: none;
@@ -645,7 +646,6 @@
 }
 
 .icsg-project-capsule .wizz-landing-page header h1 {
-  font-family: "Gotham";
   text-align: center;
   width: 35%;
   font-size: 5em;
