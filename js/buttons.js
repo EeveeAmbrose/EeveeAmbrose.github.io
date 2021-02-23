@@ -48,19 +48,22 @@ function tooltipCreator(){
 
 function MainButton() {
 
-    let errorExists = false;
-    let errorMessage;
-    let currentAnswerInfo = {};
+    let errorExists = false;    // Initializes error state and sets to false
+    let errorMessage;   // Initiialize error message
+    let currentAnswerInfo = {}; // Initialize an object that will store all the information about a question and its answer
+                                // currentAnswerInfo consist of 2 things, 1. what form the data came from and the data from its state in wizzardstates.js, 2. the value of the users input
 
-    if(userData.length > currentFormNumber){
-        userData[currentFormNumber] = currentAnswerInfo;
-    } else {
-        userData.push(currentAnswerInfo);
+    if(userData.length > currentFormNumber){ // check to see if userdata, is larger than the current form number. This is useful later for when a back button is implemented.
+        userData[currentFormNumber] = currentAnswerInfo; //? This is 
+        console.log('reeeeeee the userdata length is less than the current form number') //! make sure to remove this for internal
+    } else { // This is the default
+        userData.push(currentAnswerInfo); // Puts currentAnswerInfo into userData.
     }
  
-    const $inputList = document.getElementsByTagName('input');
-    l = $inputList.length;
+    const $inputList = document.getElementsByTagName('input'); //Gets all of the inputs from the page
+    l = $inputList.length; //gets the length of the inputs list
     const Verification = document.querySelector('#wizz_' + currentFormNumber).func;
+    console.log(Verification)
 
     if(Verification){    
         errorMessage = Verification($inputList);
