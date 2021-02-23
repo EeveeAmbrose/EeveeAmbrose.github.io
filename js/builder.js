@@ -317,9 +317,9 @@ function BuildWizz(question, tooltip, verification) {
         }
     ]
   
-    const $Stuff = CreateHTML(WizzBoxStructure);
-    $Stuff[0].func = verification;
-    $wizzHolder.append(...$Stuff);
+    const completeWizzBox = CreateHTML(WizzBoxStructure);
+    completeWizzBox[0].func = verification;
+    $wizzHolder.append(...completeWizzBox);
   };
 
 
