@@ -6,10 +6,10 @@ const verifyLookUp = {
 	'last-name': VerifyAlphabetOnly,
 	'usa-specific-location-state': VerifyAlphabetOnly,
 	'usa-specific-location-city': VerifyAlphabetOnly,
-	'usa-specific-location-zip-code': VerifyNumbersOnly, //! This still needs to be made
+	//'usa-specific-location-zip-code': VerifyNumbersOnly, //! This still needs to be made
 	'canada-specific-location-province-territory': VerifyAlphabetOnly,
 	'canada-specific-location-city': VerifyAlphabetOnly,
-	'canada-specific-location-postal-code': VerifyCanadaPostalCode, //! this still needs to be made!
+	//'canada-specific-location-postal-code': VerifyCanadaPostalCode, //! this still needs to be made!
 }
 
 //?                 START OF GENERAL CHECKS                    
